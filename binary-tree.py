@@ -139,12 +139,32 @@ if __name__ == '__main__':
     print("The Min is: ", numbers_tree.find_min())
     print("The Max is: ", numbers_tree.find_max())
     print("The Sum of the Numbers is: ", numbers_tree.calculate_sum())
-    
+    #post and pre oredr
     print("The Post order traversal is: ", numbers_tree.post_order_traversal())
     print("The Pre order traversal is: ", numbers_tree.pre_order_traversal())
     
-    
+    #in order and delete
     print("In order traversal: ", numbers_tree.in_order_traversal())
-    
     numbers_tree.delete(20)
     print("Deleted a number: ", numbers_tree.in_order_traversal())
+    print()
+    
+    print("=========================================") 
+    #Full name tree 
+    full_name = ['V', 'I', 'N', 'C', 'E','J','E', 'R','E','M','Y','L','A','D','I','O','N']
+    name_tree = build_tree(full_name)
+    
+    print("Name: ", full_name)
+    
+    #search for a letter
+    search_letter = input("Input letter to see if the letter is in the name(use capital letter): ")
+    def searchFromName():
+        indicator = name_tree.search(search_letter)
+        if indicator is True:
+            print("The input is in the name!\n")
+        if indicator is False:
+            print("The input is NOT in the name!\n")
+        else:
+            print('Error')
+            
+    searchFromName()
