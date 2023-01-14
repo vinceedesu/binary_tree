@@ -30,7 +30,7 @@ class BinarySearchTree:
         
         if self.right:
             elements += self.right.in_order_traversal()
-        
+
         return elements
 
     def search(self, val):
@@ -48,6 +48,13 @@ class BinarySearchTree:
                 return self.right.search(val)
             else:
                 return False
+# ================== EXERCISE =====================
+    # find_min method
+    def find_min(self):
+        if self.left is None:
+            return self.data
+        return self.left.find_min()
+        
 
 def build_tree(elements):
     root = BinarySearchTree(elements[0])
@@ -60,4 +67,13 @@ def build_tree(elements):
 if __name__ == '__main__':
     numbers = [17, 4 , 1, 20, 9, 23, 18, 34,]
     numbers_tree = build_tree(numbers)
-    print(numbers_tree.search(1))
+    
+    # countries = ['India', 'China', 'USA', 'Germany', 'UK', 'Pakistan']
+    # country_tree = build_tree(countries)
+    # print("UK is in the list? ", country_tree.search('UK'))
+    # print("Japan is in the list? ", country_tree.search('Japan'))
+    
+    # print(numbers_tree.in_order_traversal())
+    
+    print("Input numbers: ", numbers)
+    print("Min: ", numbers_tree.find_min())
