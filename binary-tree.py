@@ -149,13 +149,21 @@ if __name__ == '__main__':
     print("Deleted a number: ", numbers_tree.in_order_traversal())
     print()
     
-    print("=========================================") 
+    print("=================[FULL NAME]========================") 
     #Full name tree 
     full_name = ['V', 'I', 'N', 'C', 'E','J','E', 'R','E','M','Y','L','A','D','I','O','N']
     name_tree = build_tree(full_name)
     
     print("Name: ", full_name)
+    #MIN AND MAX OF NAME
+    print("The Min is: ", name_tree.find_min())
+    print("The Max is: ", name_tree.find_max())    
+    #ASCENDING ORDER IN_ORDER_TRAVERSAL
+    print("Ascending order(In order traversal): ",name_tree.in_order_traversal())
     
+    #post order traversal
+    print("Post order traversal: ", name_tree.post_order_traversal())
+    print("Pre order traversal: ", name_tree.pre_order_traversal())  
     #search for a letter
     search_letter = input("Input letter to see if the letter is in the name(use capital letter): ")
     def searchFromName():
@@ -164,7 +172,10 @@ if __name__ == '__main__':
             print("The input is in the name!\n")
         if indicator is False:
             print("The input is NOT in the name!\n")
-        else:
-            print('Error')
-            
+    def delete_letter():
+        input_letter = input("Input letter to delete: ")
+        name_tree.delete(input_letter)
+        print("Deleted " + input_letter + ": The new set is: ", name_tree.in_order_traversal())
     searchFromName()
+    delete_letter()
+    
