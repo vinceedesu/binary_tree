@@ -48,7 +48,7 @@ class BinarySearchTree:
                 return self.right.search(val)
             else:
                 return False
-# ================== EXERCISE =====================
+# ================== EXERCISE 1=====================
     # find_min method
     def find_min(self):
         if self.left is None:
@@ -66,6 +66,17 @@ class BinarySearchTree:
         left_sum = self.left.calculate_sum() if self.left else 0
         right_sum = self.right.calculate_sum() if self.right else 0
         return self.data + left_sum + right_sum
+    #Post order traversal
+    def post_order_traversal(self):
+        elements = []
+        if self.left:
+            elements += self.left.post_order_traversal()
+        if self.right:
+            elements += self.right.post_order_traversal()
+        
+        elements.append(self.data)
+        
+        return elements
 
 def build_tree(elements):
     root = BinarySearchTree(elements[0])
@@ -91,4 +102,6 @@ if __name__ == '__main__':
     print("The Min is: ", numbers_tree.find_min())
     print("The Max is: ", numbers_tree.find_max())
     print("The Sum of the Numbers is: ", numbers_tree.calculate_sum())
+    
+    print("The Post order traversal is: ", numbers_tree.post_order_traversal())
     
