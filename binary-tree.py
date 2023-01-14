@@ -74,6 +74,7 @@ if __name__ == '__main__':
     # print("Japan is in the list? ", country_tree.search('Japan'))
     
     # print(numbers_tree.in_order_traversal())
-    
-    print("Input numbers: ", numbers)
-    print("Min: ", numbers_tree.find_min())
+    print("=========================================")
+    print("Numbers: ", numbers)
+    print("=========================================")
+    print("The Min is: ", numbers_tree.find_min())
