@@ -92,10 +92,10 @@ class BinarySearchTree:
     def delete(self, val):
         if val < self.data:
             if self.left:
-                self.left.delete(val)
+                self. left = self.left.delete(val)
         elif val > self.data:
             if self.left:
-                self.right.delete(val)
+                self.right = self.right.delete(val)
         else:
             if self.left is None and self.right is None:
                 return None
@@ -136,3 +136,9 @@ if __name__ == '__main__':
     
     print("The Post order traversal is: ", numbers_tree.post_order_traversal())
     print("The Pre order traversal is: ", numbers_tree.pre_order_traversal())
+    
+    
+    print("In order traversal: ", numbers_tree.in_order_traversal())
+    
+    numbers_tree.delete(20)
+    print("Deleted a number: ", numbers_tree.in_order_traversal())
