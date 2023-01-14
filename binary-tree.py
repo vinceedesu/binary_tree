@@ -60,6 +60,12 @@ class BinarySearchTree:
         if self.right is None:
             return self.data
         return self.right.find_max()
+    
+    #calculate sum
+    def calculate_sum(self):
+        left_sum = self.left.calculate_sum() if self.left else 0
+        right_sum = self.right.calculate_sum() if self.right else 0
+        return self.data + left_sum + right_sum
 
 def build_tree(elements):
     root = BinarySearchTree(elements[0])
@@ -81,6 +87,8 @@ if __name__ == '__main__':
     # print(numbers_tree.in_order_traversal())
     print("=========================================")
     print("Numbers: ", numbers)
-    print("=========================================")
+    print("=========================================") 
     print("The Min is: ", numbers_tree.find_min())
     print("The Max is: ", numbers_tree.find_max())
+    print("The Sum of the Numbers is: ", numbers_tree.calculate_sum())
+    
