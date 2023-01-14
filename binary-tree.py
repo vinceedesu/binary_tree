@@ -77,6 +77,16 @@ class BinarySearchTree:
         elements.append(self.data)
         
         return elements
+    
+    #Pre order traversal
+    def pre_order_traversal(self):
+        elements = [self.data]
+        if self.left:
+            elements += self.left.pre_order_traversal()
+        if self.right:
+            elements += self.right.pre_order_traversal()
+        
+        return elements
 
 def build_tree(elements):
     root = BinarySearchTree(elements[0])
@@ -104,4 +114,4 @@ if __name__ == '__main__':
     print("The Sum of the Numbers is: ", numbers_tree.calculate_sum())
     
     print("The Post order traversal is: ", numbers_tree.post_order_traversal())
-    
+    print("The Pre order traversal is: ", numbers_tree.pre_order_traversal())
